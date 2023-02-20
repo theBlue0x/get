@@ -60,7 +60,7 @@ cd node
 
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "             --------- Compiling Blue0x ---------"
-echo ''
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
 ./compile.sh
 
