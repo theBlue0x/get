@@ -42,7 +42,7 @@ echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "        ------------- Installing Java --------------"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
-apt-get -y install default-jdk < "/dev/null"
+apt-get -y install default-jre < "/dev/null"
 
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "         ----------- Java Successfully Installed! ----------------"
