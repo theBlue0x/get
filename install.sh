@@ -23,6 +23,9 @@ echo '---------- System successfully updated! ------------'
 echo '---------- Installing Java -----------------'
 
 apt-get install default-jdk
+exit 0
++END
+echo $?
 
 echo '----------- Java Successfully Installed ----------------'
 echo '------------ Cloning Blue0x Repository ------------'
