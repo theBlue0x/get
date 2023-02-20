@@ -12,16 +12,13 @@ __________.__                _______
 '
 
 echo ''
-echo ''
-echo ''
 echo '---------- Updating system ----------------'
 echo ''
 echo ''
 echo ''
 
 
-apt-get update
-
+apt-get -y update < "/dev/null"
 echo ''
 echo ''
 echo ''
@@ -34,7 +31,7 @@ echo ''
 echo ''
 echo ''
 
-apt-get install default-jdk
+apt-get -y install default-jdk < "/dev/null"
 
 
 echo ''
