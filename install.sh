@@ -1,7 +1,5 @@
 #!/usr/bin/bash
 clear
-echo -e "\e[0m\c"
-
 echo '
 __________.__                _______          
 \______   \  |  __ __   ____ \   _  \ ___  ___
@@ -20,8 +18,6 @@ echo '---------- System successfully updated! ------------'
 echo '---------- Installing Java -----------------'
 
 apt-get install default-jdk
-exit 0
-+END
 echo $?
 
 echo '----------- Java Successfully Installed ----------------'
