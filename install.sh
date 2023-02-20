@@ -31,42 +31,43 @@ readonly GREEN_BULLET=" ${aCOLOUR[0]}-$COLOUR_RESET"
 readonly GREEN_SEPARATOR="${aCOLOUR[0]}:$COLOUR_RESET"
 
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
-echo -e "---------- Updating system ----------------"
+echo -e "            ---------- Updating system ----------------"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
 apt-get -y update < "/dev/null"
 
-echo ''
-echo ''
-echo '${GREEN}---------- System successfully updated! ------------'
-echo '---------- Installing Java -----------------{NC}'
-echo ''
-echo ''
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
+echo "       -------------- System successfully updated! ---------------"
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
+echo "        ------------- Installing Java --------------"
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
 apt-get -y install default-jdk < "/dev/null"
 
-echo ''
-echo '${GREEN}----------- Java Successfully Installed! ----------------'
-echo '------------ Cloning Blue0x Repository ------------{NC}'
-echo ''
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
+echo "         ----------- Java Successfully Installed! ----------------"
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
+echo "         ------------ Cloning Blue0x Repository ------------"
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
 git clone https://github.com/theBlue0x/node.git
 
-echo ''
-echo '${GREEN}---------Successfully Cloned Blue0x Repo! ------------{NC}'
-echo ''
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
+echo "          ---------Successfully Cloned Blue0x Repo! ------------"
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
 cd node
 
-echo ''
-echo '${GREEN}--------- Compiling Blue0x ------------{NC}'
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
+echo "             --------- Compiling Blue0x ---------"
 echo ''
 
 ./compile.sh
 
-echo ''
-echo '${GREEN}--------- Successfully Compiled Blue0x! ------------{NC}'
-echo '$--------- Running Blue0x and Syncing Chain ------------{NC}'
-echo ''
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
+echo "        --------- Successfully Compiled Blue0x! ------------"
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
+echo "      --------- Running Blue0x and Syncing Chain ------------"
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
 ./run.sh --daemon
