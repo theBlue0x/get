@@ -36,4 +36,4 @@ echo '--------- Compiling Blue0x ------------'
 echo '--------- Successfully Compiled Blue0x ------------'
 echo '--------- Running Blue0x and Syncing Chain ------------'
 
-./run.sh
+./run.sh --daemon
