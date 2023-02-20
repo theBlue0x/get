@@ -12,7 +12,7 @@ __________.__                _______
                                       
      --- Together. We Are the Bank. ---
 '
-echo '${GREEN}---------- Updating system ----------------'
+echo -e '${GREEN}---------- Updating system ----------------'
 echo ''
 
 apt-get -y update < "/dev/null"
