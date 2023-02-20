@@ -12,9 +12,6 @@ __________.__                _______
                                       
      --- Together. We Are the Bank. ---
 '
-
-set -e
-
 echo '---------- Updating system ----------------'
 
 apt-get update
