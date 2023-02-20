@@ -10,3 +10,15 @@ __________.__                _______
                                       
      --- Together. We Are the Bank. ---
 '
+
+apt-get update
+
+apt-get install default-jdk
+
+git clone https://github.com/theBlue0x/node.git
+
+cd node
+
+./compile.sh
+
+./run.sh
