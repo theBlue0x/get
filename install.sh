@@ -29,8 +29,10 @@ readonly aCOLOUR=(
 readonly GREEN_LINE=" ${aCOLOUR[0]}─────────────────────────────────────────────────────$COLOUR_RESET"
 readonly GREEN_BULLET=" ${aCOLOUR[0]}-$COLOUR_RESET"
 readonly GREEN_SEPARATOR="${aCOLOUR[0]}:$COLOUR_RESET"
-echo -e '${GREEN}---------- Updating system ----------------'
-echo ''
+
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
+echo -e "---------- Updating system ----------------"
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
 apt-get -y update < "/dev/null"
 
