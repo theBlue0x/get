@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 clear
+echo -e "\e[0m\c"
+
 echo '
 __________.__                _______          
 \______   \  |  __ __   ____ \   _  \ ___  ___
@@ -10,6 +12,8 @@ __________.__                _______
                                       
      --- Together. We Are the Bank. ---
 '
+
+set -e
 
 echo '---------- Updating system ----------------'
 
