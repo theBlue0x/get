@@ -1,7 +1,7 @@
 #!/usr/bin/bash
-GREEN=$'\e[0;32m'
-
 clear
+echo -e "\e[0m\c"
+
 echo '
 __________.__                _______          
 \______   \  |  __ __   ____ \   _  \ ___  ___
@@ -12,6 +12,23 @@ __________.__                _______
                                       
      --- Together. We Are the Bank. ---
 '
+
+set -e
+
+# COLORS
+readonly COLOUR_RESET='\e[0m'
+readonly aCOLOUR=(
+    '\e[38;5;154m' # green  	| Lines, bullets and separators
+    '\e[1m'        # Bold white	| Main descriptions
+    '\e[90m'       # Grey		| Credits
+    '\e[91m'       # Red		| Update notifications Alert
+    '\e[33m'       # Yellow		| Emphasis
+)
+
+
+readonly GREEN_LINE=" ${aCOLOUR[0]}─────────────────────────────────────────────────────$COLOUR_RESET"
+readonly GREEN_BULLET=" ${aCOLOUR[0]}-$COLOUR_RESET"
+readonly GREEN_SEPARATOR="${aCOLOUR[0]}:$COLOUR_RESET"
 echo -e '${GREEN}---------- Updating system ----------------'
 echo ''
 
