@@ -1,4 +1,6 @@
 #!/usr/bin/bash
+GREEN=$'\e[0;32m'
+
 clear
 echo '
 __________.__                _______          
@@ -10,74 +12,42 @@ __________.__                _______
                                       
      --- Together. We Are the Bank. ---
 '
-
+echo '${GREEN}---------- Updating system ----------------'
 echo ''
-echo '---------- Updating system ----------------'
-echo ''
-echo ''
-echo ''
-
 
 apt-get -y update < "/dev/null"
+
 echo ''
 echo ''
-echo ''
-echo '---------- System successfully updated! ------------'
-echo ''
-echo ''
-echo ''
-echo '---------- Installing Java -----------------'
-echo ''
+echo '${GREEN}---------- System successfully updated! ------------'
+echo '---------- Installing Java -----------------{NC}'
 echo ''
 echo ''
 
 apt-get -y install default-jdk < "/dev/null"
 
-
 echo ''
-echo ''
-echo ''
-echo '----------- Java Successfully Installed ----------------'
-echo ''
-echo ''
-echo ''
-echo '------------ Cloning Blue0x Repository ------------'
-echo ''
-echo ''
+echo '${GREEN}----------- Java Successfully Installed! ----------------'
+echo '------------ Cloning Blue0x Repository ------------{NC}'
 echo ''
 
 git clone https://github.com/theBlue0x/node.git
 
 echo ''
-echo ''
-echo ''
-echo '---------Successfully Cloned Blue0x Repo ------------'
-echo ''
-echo ''
+echo '${GREEN}---------Successfully Cloned Blue0x Repo! ------------{NC}'
 echo ''
 
 cd node
 
 echo ''
-echo ''
-echo ''
-echo '--------- Compiling Blue0x ------------'
-echo ''
-echo ''
+echo '${GREEN}--------- Compiling Blue0x ------------{NC}'
 echo ''
 
 ./compile.sh
 
 echo ''
-echo ''
-echo ''
-echo '--------- Successfully Compiled Blue0x ------------'
-echo ''
-echo ''
-echo ''
-echo '--------- Running Blue0x and Syncing Chain ------------'
-echo ''
-echo ''
+echo '${GREEN}--------- Successfully Compiled Blue0x! ------------{NC}'
+echo '$--------- Running Blue0x and Syncing Chain ------------{NC}'
 echo ''
 
 ./run.sh --daemon
