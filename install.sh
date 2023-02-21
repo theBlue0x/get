@@ -60,8 +60,8 @@ echo "please copy/paste your address here"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "Your Blue0x account address: " > /dev/tty
 read add < /dev/tty
-echo -e "\nnxt.myPlatform=$add" > nxt.properties
-echo "   Node Rewards will be sent to $add
+echo -e "nxt.myPlatform=$add" >> nxt.properties
+echo "   Node Rewards will be sent to $add"
 
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "   Compiling Blue0x"
