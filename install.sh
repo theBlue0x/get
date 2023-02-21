@@ -57,8 +57,8 @@ echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "Please create a new Blue0x account"
 echo "Once you have created your new Blue0x account," 
 echo "please copy/paste your address here"
-echo "Your Blue0x account address: " 
-read add
+echo "Your Blue0x account address: " > /dev/tty
+read add < /dev/tty
 echo -e "$add" > output.txt
 
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
