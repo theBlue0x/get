@@ -57,9 +57,10 @@ echo "   Successfully Cloned Blue0x Repo!"
 cd node
 
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
-echo "   Please create a new Blue0x account"
+echo "   Please create a new Blue0x account at"
+echo "   https://api.blue0x.com"
 echo "   Once you have created your new Blue0x account," 
-echo "   please copy/paste your address here"
+echo "   please copy/paste your address below"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "Your Blue0x account address: " > /dev/tty
 read add < /dev/tty
@@ -81,3 +82,11 @@ echo "   Running Blue0x and Syncing Chain"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
 ./run.sh --daemon
+
+echo -e "   Your node is now running at $HOST:2022"
+echo -e "   It will take a few minutes to fully sync."
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
+echo -e "   You can verify that your node is properly"
+echo -e "   configured by visiting"
+echo -e "   https://blue0x.com/node.html"
+echo -e "   Your Node IP: $HOST"
