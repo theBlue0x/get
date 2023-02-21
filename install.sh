@@ -65,7 +65,9 @@ echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "   Running Blue0x and Syncing Chain"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
-./run.sh
+./run.sh --daemon
+
+PID=$!
 
 echo "Please create a new Blue0x account"
 echo "Once you have created your new Blue0x account," 
