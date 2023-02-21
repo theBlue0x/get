@@ -83,8 +83,9 @@ echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
 ./run.sh --daemon
 
-echo -e "   Your node is now running at $HOST:2022"
+echo -e "   Your node is now running!"
 echo -e "   It will take a few minutes to fully sync."
+echo -e "   Once it has completed, it will be available at $HOST:2022"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo -e "   You can verify that your node is properly"
 echo -e "   configured by visiting"
