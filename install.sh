@@ -54,6 +54,13 @@ echo "   Successfully Cloned Blue0x Repo!"
 cd node
 
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
+echo "Please create a new Blue0x account"
+echo "Once you have created your new Blue0x account," 
+echo "please copy/paste your address here"
+read -n 1 -p "Your Blue0x account address: " add
+echo -e "$add" > output.txt
+
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "   Compiling Blue0x"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
@@ -61,12 +68,6 @@ echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "   Successfully Compiled Blue0x!"
-echo -e "${GREEN_LINE}${aCOLOUR[1]}"
-echo "Please create a new Blue0x account"
-echo "Once you have created your new Blue0x account," 
-echo "please copy/paste your address here"
-read -n 1 -p "Your Blue0x account address: " add
-echo -e "$add" > output.txt
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "   Running Blue0x and Syncing Chain"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
