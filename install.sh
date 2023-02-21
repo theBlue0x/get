@@ -65,7 +65,7 @@ echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "   Running Blue0x and Syncing Chain"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
-./run.sh --daemon
+./run.sh --daemon  < "/dev/null"
 
 PID=$!
 
