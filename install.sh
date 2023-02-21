@@ -54,14 +54,16 @@ echo "   Successfully Cloned Blue0x Repo!"
 cd node
 
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
-echo "Please create a new Blue0x account"
-echo "Once you have created your new Blue0x account," 
-echo "please copy/paste your address here"
+echo "   Please create a new Blue0x account"
+echo "   Once you have created your new Blue0x account," 
+echo "   please copy/paste your address here"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
-echo "Your Blue0x account address: " > /dev/tty
+echo "   Your Blue0x account address: " > /dev/tty
 read add < /dev/tty
-echo -e "nxt.myPlatform=$add" >> nxt.properties
-echo -e "   Node Rewards will be sent to $add"
+echo -e "nxt.myPlatform=$add" >> conf/nxt.properties
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
+echo "   Writing address to configuration file!
+echo -e "   Node Rewards will be sent to $add !"
 
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "   Compiling Blue0x"
