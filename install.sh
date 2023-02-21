@@ -50,7 +50,6 @@ git clone https://github.com/theBlue0x/node.git
 
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "   Successfully Cloned Blue0x Repo!"
-echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
 cd node
 
@@ -66,4 +65,10 @@ echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "   Running Blue0x and Syncing Chain"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
-./run.sh --daemon
+./run.sh
+
+echo "Please create a new Blue0x account"
+echo "Once you have created your new Blue0x account," 
+echo " please copy/paste your address here"
+read -p "Your Blue0x account address: "
+echo "$REPLY" > output.txt
