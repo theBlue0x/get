@@ -25,6 +25,9 @@ readonly GREEN_LINE=" ${aCOLOUR[0]}───────────────
 readonly GREEN_BULLET=" ${aCOLOUR[0]}-$COLOUR_RESET"
 readonly GREEN_SEPARATOR="${aCOLOUR[0]}:$COLOUR_RESET"
 
+HOST=hostname -i
+echo -e "   Your IP address is $HOST"
+
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo -e "   Updating system"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
