@@ -62,15 +62,13 @@ echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "   Successfully Compiled Blue0x!"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
-echo "   Running Blue0x and Syncing Chain"
-echo -e "${GREEN_LINE}${aCOLOUR[1]}"
-
-./run.sh --daemon  < "/dev/null"
-
-PID=$!
-
 echo "Please create a new Blue0x account"
 echo "Once you have created your new Blue0x account," 
 echo " please copy/paste your address here"
 read -p "Your Blue0x account address: "
 echo "$REPLY" > output.txt
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
+echo "   Running Blue0x and Syncing Chain"
+echo -e "${GREEN_LINE}${aCOLOUR[1]}"
+
+./run.sh --daemon
