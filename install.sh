@@ -25,7 +25,7 @@ readonly GREEN_LINE=" ${aCOLOUR[0]}───────────────
 readonly GREEN_BULLET=" ${aCOLOUR[0]}-$COLOUR_RESET"
 readonly GREEN_SEPARATOR="${aCOLOUR[0]}:$COLOUR_RESET"
 
-HOST=$(hostname -i)
+HOST=$(curl https://ipinfo.io/ip 2>/dev/null)
 
 echo -e "   Your IP address is $HOST"
 
