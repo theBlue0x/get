@@ -33,7 +33,7 @@ echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo -e "   Updating system"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
-apt-get -y update < "/dev/null"
+sudo apt-get -y update < "/dev/null"
 
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "   System successfully updated!"
@@ -41,7 +41,7 @@ echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "   Installing Java"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
-apt-get -y install default-jdk < "/dev/null"
+sudo apt-get -y install default-jdk < "/dev/null"
 
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "   Java Successfully Installed!"
@@ -73,7 +73,7 @@ echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "   Compiling Blue0x"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
-./compile.sh
+sudo ./compile.sh
 
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "   Successfully Compiled Blue0x!"
@@ -81,7 +81,7 @@ echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 echo "   Running Blue0x and Syncing Chain"
 echo -e "${GREEN_LINE}${aCOLOUR[1]}"
 
-./run.sh --daemon
+sudo ./run.sh --daemon
 
 echo -e "   Your node is now running!"
 echo -e "   It will take a few minutes to fully sync."
