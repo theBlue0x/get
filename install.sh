@@ -3,14 +3,11 @@
 BLUE='\033[1;34m'
 NC='\033[0m'
 
-source ./docker.sh
-source ./not_docker.sh
-
 read -p "Would you like to install Blue0x with Docker? (y/n) " answer
 
 if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
-    ./docker.sh
+    bash docker.sh
 else
-    ./not_docker.sh
+    bash not_docker.sh
 fi
 
