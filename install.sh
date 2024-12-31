@@ -14,7 +14,7 @@ echo -e "${BLUE} Checking if Docker is installed... ${NC}"
 echo ""
 
 if command -v docker &> /dev/null; then
-echo -e "${BLUE} Docker already installed. ${NC}"
+echo -e "${BLUE} Docker is already installed. ${NC}"
 
 else
 echo -e "${BLUE} Docker not installed. Installing now... ${NC}"
