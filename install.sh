@@ -47,12 +47,12 @@ lanIp="$(ip -4 -o -br addr|awk '$0 ~ /^[we]\w+\s+UP\s+/ {str = gsub("/[1-9][0-9]
 wanIp="$(curl https://ipinfo.io/ip 2>/dev/null)";
 
 echo ""
-echo -e "${BLUE} Blue0x is now running!"
+echo -e "${BLUE}Blue0x is now running!"
 echo ""
 echo -e "You can view your wallet here -> http://${wanIp} "
 echo ""
-echo -e "If you are on a local network you can view your wallet here -> http://${lanIp} "
+echo -e "If you are on a local network, you can view your wallet here -> http://${lanIp} "
 echo ""
-echo -e "To stop Blue0x, run -> sudo docker stop blue0x_container."
+echo -e "To stop Blue0x, run 'sudo docker stop blue0x_container'."
 echo ""
 echo -e "You are all done! ${NC}"
