@@ -3,9 +3,9 @@
 BLUE='\033[1;34m'
 NC='\033[0m'
 
-while true; do
-
 echo -e "${BLUE}"
+
+while true; do
 
 read -p "Do you want to use Docker to install Blue0x? (y/n) " yn
 
