@@ -2,6 +2,9 @@
 
 BLUE='\033[1;34m'
 NC='\033[0m'
+lanIp="$(ip -4 -o -br addr|awk '$0 ~ /^[we]\w+\s+UP\s+/ {str = gsub("/[1-9][0-9]*", "", $0); print $3}')";
+wanIp="$(curl https://ipinfo.io/ip 2>/dev/null)";
+
 
 echo ""
 echo -e "${BLUE}Updating system packages... ${NC}"
@@ -42,9 +45,6 @@ echo -e "${BLUE}Starting Blue0x....${NC}"
 echo ""
 
 sudo docker run -d --restart=unless-stopped -p 2020:2020 -p 6876:6876 --name blue0x_container blue0x
-
-lanIp="$(ip -4 -o -br addr|awk '$0 ~ /^[we]\w+\s+UP\s+/ {str = gsub("/[1-9][0-9]*", "", $0); print $3}')";
-wanIp="$(curl https://ipinfo.io/ip 2>/dev/null)";
 
 echo ""
 echo -e "${BLUE}Blue0x is now running!"
