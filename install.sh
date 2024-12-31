@@ -5,7 +5,6 @@ NC='\033[0m'
 lanIp="$(hostname  -I | cut -f1 -d' ')";
 wanIp="$(curl https://ipinfo.io/ip 2>/dev/null)";
 
-
 echo ""
 echo -e "${BLUE}Updating system packages... ${NC}"
 echo ""
