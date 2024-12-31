@@ -3,12 +3,11 @@
 BLUE='\033[1;34m'
 NC='\033[0m'
 
-#source if docker install
 source ./docker.sh
 source ./not_docker.sh
 
 while true; do
-    read -p "Would you like to install Blue0x with Docker?" yn
+    ${BLUE}read -p "Would you like to install Blue0x with Docker?" yn
     case $yn in
         [Yy]* ) ./docker.sh;;
         [Nn]* ) ./not_docker.sh;;
