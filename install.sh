@@ -5,7 +5,9 @@ NC='\033[0m'
 
 while true; do
 
-read -p "Do you want to proceed? (y/n) " yn
+echo -e "${BLUE}"
+
+read -p "Do you want to use Docker to install Blue0x? (y/n) " yn
 
 case $yn in 
 	[yY] ) echo ok, we will proceed;
@@ -17,4 +19,5 @@ esac
 
 done
 
+echo -e "${NC}"
 echo doing stuff...
