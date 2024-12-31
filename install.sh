@@ -21,7 +21,6 @@ echo -e "${BLUE}Docker not installed. Installing now... ${NC}"
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh 1> /dev/null
 echo ""
-
 fi
 
 echo ""
