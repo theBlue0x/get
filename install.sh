@@ -2,7 +2,7 @@
 
 BLUE='\033[1;34m'
 NC='\033[0m'
-lanIp="$(ip -4 -o -br addr|awk '$0 ~ /^[we]\w+\s+UP\s+/ {str = gsub("/[1-9][0-9]*", "", $0); print $3}')";
+lanIp="$(hostname  -I | cut -f1 -d' ')";
 wanIp="$(curl https://ipinfo.io/ip 2>/dev/null)";
 
 
