@@ -46,7 +46,9 @@ echo ""
 sudo docker run -d --restart=unless-stopped -p 2020:2020 -p 6876:6876 --name blue0x_container blue0x
 
 echo ""
-echo -e "${BLUE}Blue0x is now running! It will be available in a few minutes..."
+echo -e "${BLUE}Blue0x is now running!"
+echo ""
+echo -e "Please allow a few minutes for the wallet to start..."
 echo ""
 echo -e "You can view your wallet here -> ${NC}http://${wanIp}:6876"
 echo ""
