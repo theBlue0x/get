@@ -10,10 +10,11 @@ echo ""
 sudo apt update
 
 echo ""
-echo -e "${BLUE}Installing Java....${NC}"
+echo -e "${BLUE}Installing Docker....${NC}"
 echo ""
 
-sudo apt install -qq openjdk-11-jdk-headless -y
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh 1> /dev/null
 
 echo ""
 echo -e "${BLUE}Cloning the Blue0x repo....${NC}"
@@ -24,16 +25,21 @@ git clone https://github.com/theBlue0x/node_new.git
 cd node_new
 
 echo ""
-echo -e "${BLUE}Compiling Blue0x....${NC}"
+echo -e "${BLUE}Building the Blue0x Docker container....${NC}"
 echo ""
 
-sh compile.sh
+sudo docker build -t blue0x .
 
 echo ""
 echo -e "${BLUE}Starting Blue0x....${NC}"
 echo ""
 
-sh run.sh --daemon
+sudo docker run -d --restart=unless-stopped -p 2020:2020 -p 6876:6876 --name blue0x_container blue0x
+
+echo ""
+echo -e "${BLUE}All done!${NC}"
+echo ""
+
 
 echo ""
 echo -e "${BLUE}All done! You may exit the terminal.${NC}"
