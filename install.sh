@@ -6,11 +6,11 @@ NC='\033[0m'
 source ./docker.sh
 source ./not_docker.sh
 
-read -p "Would you like to install Blue0x with Docker?" yn
-case $yn in
-    [Yy]* ) ./docker.sh;;
-    [Nn]* ) ./not_docker.sh;;
-    * ) echo "Please answer yes or no.";;
-esac
-done
+read -p "Would you like to install Blue0x with Docker? (y/n) " answer
+
+if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
+    ./docker.sh
+else
+    ./not_docker.sh
+fi
 
