@@ -10,11 +10,17 @@ echo ""
 sudo apt update
 
 echo ""
-echo -e "${BLUE}Installing Docker....${NC}"
+echo -e "${BLUE} Checking if Docker is installed....${NC}"
 echo ""
 
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh 1> /dev/null
+if command -v docker &> /dev/null; then
+    echo -e "${BLUE} Docker installation found. Moving on...${NC}"
+else
+    echo -e "${BLUE} Docker not found. Installing now..."
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh 1> /dev/null
+echo ""
+fi
 
 echo ""
 echo -e "${BLUE}Cloning the Blue0x repo....${NC}"
