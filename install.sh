@@ -6,8 +6,8 @@ NC='\033[0m'
 read -p "Would you like to install Blue0x with Docker? (y/n) " answer
 
 if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
-    bash docker.sh
+    ./docker.sh
 else
-    bash not_docker.sh
+    ./not_docker.sh
 fi
 
