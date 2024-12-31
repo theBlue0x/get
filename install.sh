@@ -4,20 +4,20 @@ BLUE='\033[1;34m'
 NC='\033[0m'
 
 echo ""
-echo -e "${BLUE} Updating system packages... ${NC}"
+echo -e "${BLUE}Updating system packages... ${NC}"
 echo ""
 
 sudo apt update
 
 echo ""
-echo -e "${BLUE} Checking if Docker is installed... ${NC}"
+echo -e "${BLUE}Checking if Docker is installed... ${NC}"
 echo ""
 
 if command -v docker &> /dev/null; then
-echo -e "${BLUE} Docker is already installed. ${NC}"
+echo -e "${BLUE}Docker is already installed. ${NC}"
 
 else
-echo -e "${BLUE} Docker not installed. Installing now... ${NC}"
+echo -e "${BLUE}Docker not installed. Installing now... ${NC}"
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh 1> /dev/null
 echo ""
@@ -25,7 +25,7 @@ echo ""
 fi
 
 echo ""
-echo -e "${BLUE} Cloning the Blue0x repo... ${NC}"
+echo -e "${BLUE}Cloning the Blue0x repo... ${NC}"
 echo ""
 
 git clone https://github.com/theBlue0x/node_new.git
