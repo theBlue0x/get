@@ -36,11 +36,8 @@ echo ""
 
 sudo docker run -d --restart=unless-stopped -p 2020:2020 -p 6876:6876 --name blue0x_container blue0x
 
-echo ""
-echo -e "${BLUE}All done!${NC}"
-echo ""
-
+wanIp="$(curl https://ipinfo.io/ip 2>/dev/null)";
 
 echo ""
-echo -e "${BLUE}All done! You may exit the terminal.${NC}"
+echo -e "${BLUE}Blue0x is now running!  You can view your wallet here -> http://${wanIp} ${NC}"
 echo ""
