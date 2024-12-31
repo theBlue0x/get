@@ -7,7 +7,7 @@ source ./docker.sh
 source ./not_docker.sh
 
 while true; do
-    ${BLUE}read -p "Would you like to install Blue0x with Docker?" yn
+    read -p "Would you like to install Blue0x with Docker?" yn
     case $yn in
         [Yy]* ) ./docker.sh;;
         [Nn]* ) ./not_docker.sh;;
