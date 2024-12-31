@@ -46,7 +46,7 @@ echo ""
 sudo docker run -d --restart=unless-stopped -p 2020:2020 -p 6876:6876 --name blue0x_container blue0x
 
 echo ""
-echo -e "${BLUE}Blue0x is now running! It will be available in a few minutes.."
+echo -e "${BLUE}Blue0x is now running! It will be available in a few minutes..."
 echo ""
 echo -e "You can view your wallet here -> ${NC}http://${wanIp}:6876"
 echo ""
@@ -56,3 +56,4 @@ echo ""
 echo -e "${BLUE}To stop Blue0x, run ${NC}'sudo docker stop blue0x_container'"
 echo ""
 echo -e "${BLUE}You are all done. You may close this window.${NC}"
+echo ""
