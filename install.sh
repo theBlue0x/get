@@ -1,6 +1,6 @@
 #!/bin/bash
 
-clear
-echo " "
+sleep 2
+echo "-----------------------------------------------"
 echo "Blue0x is currently being updated.  Stay tuned!"
-echo " "
+echo "-----------------------------------------------"
