@@ -9,7 +9,7 @@ echo ""
 echo -e "${BLUE}Updating system packages... ${NC}"
 echo ""
 
-sudo apt update
+sudo apt update && sudo apt upgrade -y
 
 echo ""
 echo -e "${BLUE}Checking if Docker is installed... ${NC}"
@@ -43,10 +43,10 @@ echo ""
 echo -e "${BLUE}Starting Blue0x....${NC}"
 echo ""
 
-sudo docker run -d --restart=unless-stopped -p 2020:2020 -p 6876:6876 --name blue0x_container blue0x
+sudo docker run -d --restart=unless-stopped --network=host --name blue0x blue0x
 
 echo ""
-echo -e "${BLUE}Blue0x is now running!"
+/*echo -e "${BLUE}Blue0x is now running!"
 echo ""
 echo -e "Please allow a few minutes for the wallet to start..."
 echo ""
@@ -55,7 +55,7 @@ echo ""
 echo -e ${BLUE}"If you are on a local network, you can view your" 
 echo -e "wallet here -> ${NC}http://${lanIp}:6876"
 echo ""
-echo -e "${BLUE}To stop Blue0x, run ${NC}'sudo docker stop blue0x_container'"
+echo -e "${BLUE}To stop Blue0x, run ${NC}'sudo docker stop blue0x'"
 echo ""
 echo -e "${BLUE}You are all done. You may close this window.${NC}"
-echo ""
+echo ""*/
