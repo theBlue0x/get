@@ -9,7 +9,9 @@ echo ""
 echo -e "${BLUE}Updating system packages... ${NC}"
 echo ""
 
-sudo apt update && sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y && sudo apt install nginx certbot python3-certbot-nginx
+
+sudo systemctl enable nginx
 
 echo ""
 echo -e "${BLUE}Checking if Docker is installed... ${NC}"
@@ -24,6 +26,53 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh 1> /dev/null
 echo ""
 fi
+
+echo ""
+echo -e "${BLUE}You now need to assign your Blue0x node a domain name."
+echo -e "Go to https://www.duckdns.org/domains and create an account."
+read -p "When you are finished, press Enter to continue..."
+echo ""
+echo -e "Now choose your domain name for your Blue0x node and enter it into the correct field.  It can be anything you like."
+read -p "When you are finished, press Enter to continue..."
+echo ""
+echo -e "Now enter ${wanIp} into the 'current ip' field and hit 'update ip'."
+read -p "When you are finished, press Enter to continue..."
+echo ""
+domain_step() {
+read -p "Please enter the domain name that you chose? i.e. blue0x.duckdns.org"  domain
+echo ""
+}
+while true; do
+    read -p "You have entered ${domain}. Is this correct? (y/n) " yn
+    case $yn in
+        [Yy]* ) 
+        echo "Great! Setting up SSL certificates for your domain..."; 
+        break;;
+        
+        [Nn]* ) 
+        echo "Exiting..."; 
+        domain_step;;
+        * ) echo 
+        "Invalid response. Please answer y or n.";;
+    esac
+done
+
+cat > /etc/nginx/sites-available/${domain} << EOF
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name ${domain};
+        
+    location / {
+        proxy_pass http://localhost:6876;
+        include proxy_params;
+    }
+}
+EOF
+
+sudo ln -s /etc/nginx/sites-available/${domain} /etc/nginx/sites-enabled/
+sudo systemctl restart nginx
 
 echo ""
 echo -e "${BLUE}Cloning the Blue0x repo... ${NC}"
@@ -46,7 +95,10 @@ echo ""
 sudo docker run -d --restart=unless-stopped --network=host --name blue0x blue0x
 
 echo ""
-/*echo -e "${BLUE}Blue0x is now running!"
+
+/*
+
+echo -e "${BLUE}Blue0x is now running!"
 echo ""
 echo -e "Please allow a few minutes for the wallet to start..."
 echo ""
@@ -58,4 +110,8 @@ echo ""
 echo -e "${BLUE}To stop Blue0x, run ${NC}'sudo docker stop blue0x'"
 echo ""
 echo -e "${BLUE}You are all done. You may close this window.${NC}"
-echo ""*/
+echo ""
+
+*/
+
+
