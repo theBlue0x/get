@@ -9,7 +9,7 @@ echo ""
 echo -e "${BLUE}Updating system packages....${NC}"
 echo ""
 
-sudo apt update
+sudo apt update > /dev/null 2>&1 && sudo apt upgrade -y > /dev/null 2>&1 && sudo apt install curl
 
 echo ""
 echo -e "${BLUE}Installing Java....${NC}"
@@ -43,12 +43,9 @@ sh run.sh --daemon
 echo ""
 echo -e "${BLUE}Blue0x is now running!"
 echo ""
-echo -e "Please allow a few minutes for the wallet to start..."
+echo -e "Please allow a few minutes for the node to start..."
 echo ""
-echo -e "You can view your wallet here -> ${NC}http://${wanIp}:6876"
-echo ""
-echo -e ${BLUE}"If you are on a local network, you can view your" 
-echo -e "wallet here -> ${NC}http://${lanIp}:6876"
+echo -e "You can view your node here -> ${NC}http://${wanIp}:6876"
 echo ""
 echo -e "${BLUE}To stop Blue0x, run ${NC}'sh stop.sh'"
 echo ""
