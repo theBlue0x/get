@@ -9,10 +9,9 @@ echo ""
 echo -e "${BLUE}Updating system packages... ${NC}"
 echo ""
 
-sudo apt update && sudo apt upgrade -y && sudo apt install nginx certbot python3-certbot-nginx
+sudo apt update > /dev/null 2>&1 && sudo apt upgrade -y > /dev/null 2>&1 && sudo apt install git nginx certbot python3-certbot-nginx > /dev/null 2>&1
 
-sudo systemctl enable nginx
-
+sudo systemctl enable nginx > /dev/null 2>&1
 echo ""
 echo -e "${BLUE}Checking if Docker is installed... ${NC}"
 echo ""
@@ -22,42 +21,60 @@ echo -e "${BLUE}Docker is already installed. ${NC}"
 
 else
 echo -e "${BLUE}Docker not installed. Installing now... ${NC}"
+echo ""
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh 1> /dev/null
+> /dev/null 2>&1
+
 echo ""
 fi
 
 echo ""
 echo -e "${BLUE}You now need to assign your Blue0x node a domain name."
 echo -e "Go to https://www.duckdns.org/domains and create an account."
+echo ""
 read -p "When you are finished, press Enter to continue..."
 echo ""
-echo -e "Now choose your domain name for your Blue0x node and enter it into the correct field.  It can be anything you like."
+echo ""
+echo ""
+echo -e "Now choose a domain name for your Blue0x node and enter it into the 'sub domain' field."
+echo -e "It can be anything you like.  Then hit 'add domain'."
+echo ""
 read -p "When you are finished, press Enter to continue..."
+echo ""
+echo ""
 echo ""
 echo -e "Now enter ${wanIp} into the 'current ip' field and hit 'update ip'."
+echo ""
 read -p "When you are finished, press Enter to continue..."
 echo ""
+echo ""
+echo ""
+
 domain_step() {
-read -p "Please enter the domain name that you chose? i.e. blue0x.duckdns.org"  domain
+echo ""
+read -p "Please enter the domain name that you chose? (i.e. blue0x.duckdns.org) "  domain
 echo ""
 }
+
+domain_step 
+
 while true; do
-    read -p "You have entered ${domain}. Is this correct? (y/n) " yn
+    read -p "You have entered ' ${domain} '. Is this correct? (y/n) " yn
     case $yn in
         [Yy]* ) 
-        echo "Great! Setting up SSL certificates for your domain..."; 
+        echo ""
+        echo "Great! Setting up SSL certificates for your domain...";
         break;;
-        
         [Nn]* ) 
-        echo "Exiting..."; 
         domain_step;;
-        * ) echo 
-        "Invalid response. Please answer y or n.";;
+        * )
+        echo ""
+        echo "Invalid response. Please answer y or n.";;
     esac
 done
 
-cat > /etc/nginx/sites-available/${domain} << EOF
+sudo cat > /etc/nginx/sites-available/${domain} << EOF
 server {
     listen 80;
     listen [::]:80;
@@ -72,13 +89,14 @@ server {
 EOF
 
 sudo ln -s /etc/nginx/sites-available/${domain} /etc/nginx/sites-enabled/
+sudo certbot --nginx -d ${domain}
 sudo systemctl restart nginx
 
 echo ""
 echo -e "${BLUE}Cloning the Blue0x repo... ${NC}"
 echo ""
 
-git clone https://github.com/theBlue0x/node_new.git
+git clone https://github.com/theBlue0x/node_new.git > /dev/null 2>&1
 
 cd node_new
 
@@ -86,7 +104,7 @@ echo ""
 echo -e "${BLUE}Building the Blue0x Docker container....${NC}"
 echo ""
 
-sudo docker build -t blue0x .
+sudo docker build -t blue0x . 
 
 echo ""
 echo -e "${BLUE}Starting Blue0x....${NC}"
@@ -96,22 +114,15 @@ sudo docker run -d --restart=unless-stopped --network=host --name blue0x blue0x
 
 echo ""
 
-/*
-
 echo -e "${BLUE}Blue0x is now running!"
 echo ""
 echo -e "Please allow a few minutes for the wallet to start..."
 echo ""
-echo -e "You can view your wallet here -> ${NC}http://${wanIp}:6876"
-echo ""
-echo -e ${BLUE}"If you are on a local network, you can view your" 
-echo -e "wallet here -> ${NC}http://${lanIp}:6876"
+echo -e "You can view your wallet here -> ${NC}https://${domain}/test"
 echo ""
 echo -e "${BLUE}To stop Blue0x, run ${NC}'sudo docker stop blue0x'"
 echo ""
-echo -e "${BLUE}You are all done. You may close this window.${NC}"
+echo -e "${BLUE}That's it! You are all done. You may close this window.${NC}"
 echo ""
-
-*/
 
 
