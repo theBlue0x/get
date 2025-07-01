@@ -9,15 +9,15 @@ echo ""
 echo -e "${BLUE}Updating system packages....${NC}"
 echo ""
 
-sudo apt update > /dev/null 2>&1 && sudo apt upgrade -y > /dev/null 2>&1 && sudo apt install curl
+sudo apt update > /dev/null 2>&1 && sudo apt upgrade -y > /dev/null 2>&1 && sudo apt install curl git
 
 echo ""
 echo -e "${BLUE}Installing Java....${NC}"
 echo ""
 
-# Install Azull JDK 11 amd64 TODO: add check and install or ARM
+# Install Azull JDK 11 
 
-curl https://cdn.azul.com/zulu/bin/zulu11.76.21-ca-jdk11.0.25-linux_amd64.deb
+curl -k -L --output - s https://cdn.azul.com/zulu/bin/zulu11.76.21-ca-jdk11.0.25-linux_amd64.deb
 sudo apt install zulu11.76.21-ca-jdk11.0.25-linux_amd64.deb
 
 echo ""
