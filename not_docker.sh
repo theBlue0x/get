@@ -15,10 +15,73 @@ echo ""
 echo -e "${BLUE}Installing Java....${NC}"
 echo ""
 
-# Install Azull JDK 11 
+# Install Azul JDK 11 
 
 curl -k -L --output zulu11.76.21-ca-jdk11.0.25-linux_amd64.deb https://cdn.azul.com/zulu/bin/zulu11.76.21-ca-jdk11.0.25-linux_amd64.deb
-sudo apt install zulu11.76.21-ca-jdk11.0.25-linux_amd64.deb
+sudo apt install ./zulu11.76.21-ca-jdk11.0.25-linux_amd64.deb
+
+echo ""
+echo -e "${BLUE}You now need to assign your Blue0x node a domain name."
+echo -e "Go to https://www.duckdns.org/domains and create an account."
+echo ""
+read -p "When you are finished, press Enter to continue..."
+echo ""
+echo ""
+echo ""
+echo -e "Now choose a domain name for your Blue0x node and enter it into the 'sub domain' field."
+echo -e "It can be anything you like.  Then hit 'add domain'."
+echo ""
+read -p "When you are finished, press Enter to continue..."
+echo ""
+echo ""
+echo ""
+echo -e "Now enter ${wanIp} into the 'current ip' field and hit 'update ip'."
+echo ""
+read -p "When you are finished, press Enter to continue..."
+echo ""
+echo ""
+echo ""
+
+domain_step() {
+echo ""
+read -p "Please enter the domain name that you chose? (i.e. blue0x.duckdns.org) "  domain
+echo ""
+}
+
+domain_step 
+
+while true; do
+    read -p "You have entered ' ${domain} '. Is this correct? (y/n) " yn
+    case $yn in
+        [Yy]* ) 
+        echo ""
+        echo "Great! Setting up SSL certificates for your domain...";
+        break;;
+        [Nn]* ) 
+        domain_step;;
+        * )
+        echo ""
+        echo "Invalid response. Please answer y or n.";;
+    esac
+done
+
+sudo cat > /etc/nginx/sites-available/${domain} << EOF
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name ${domain};
+        
+    location / {
+        proxy_pass http://localhost:6876;
+        include proxy_params;
+    }
+}
+EOF
+
+sudo ln -s /etc/nginx/sites-available/${domain} /etc/nginx/sites-enabled/
+sudo certbot --nginx -d ${domain}
+sudo systemctl restart nginx
 
 echo ""
 echo -e "${BLUE}Cloning the Blue0x repo....${NC}"
