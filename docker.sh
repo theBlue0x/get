@@ -121,7 +121,9 @@ echo -e "You can view your wallet here -> ${NC}https://${domain}/test"
 echo ""
 echo -e "${BLUE}To stop Blue0x, run ${NC}'sudo docker stop blue0x'"
 echo ""
-echo -e "${BLUE}That's it! You are all done. You may close this window.${NC}"
+echo -e "${BLUE}That's it! You are all done."
+echo ""
+echo -e "You may close this window.${NC}"
 echo ""
 
 
