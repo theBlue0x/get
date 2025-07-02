@@ -53,11 +53,11 @@ domain_step
 while true; do
     read -p "You have entered ' ${domain} '. Is this correct? (y/n) " yn
     case $yn in
-        [Yy]* ) 
+        [Yy] ) 
         echo ""
         echo "Great! Setting up SSL certificates for your domain...";
         break;;
-        [Nn]* ) 
+        [Nn] ) 
         domain_step;;
         * )
         echo ""
