@@ -115,7 +115,7 @@ echo ""
 
 echo -e "${BLUE}Blue0x is now running!"
 echo ""
-echo -e "Please allow a few minutes for the wallet to start..."
+echo -e "Please allow a few minutes for the node to start..."
 echo ""
 echo -e "You can view your node here -> ${NC}https://${domain}/test"
 echo ""
