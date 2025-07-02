@@ -17,7 +17,7 @@ echo ""
 
 # Install Azul JDK 11 
 
-curl -k -L --output zulu11.76.21-ca-jdk11.0.25-linux_amd64.deb https://cdn.azul.com/zulu/bin/zulu11.76.21-ca-jdk11.0.25-linux_amd64.deb
+curl -L --output zulu11.76.21-ca-jdk11.0.25-linux_amd64.deb https://cdn.azul.com/zulu/bin/zulu11.76.21-ca-jdk11.0.25-linux_amd64.deb
 sudo apt install ./zulu11.76.21-ca-jdk11.0.25-linux_amd64.deb
 
 echo ""
