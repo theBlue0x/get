@@ -65,6 +65,7 @@ while true; do
     esac
 done
 
+
 sudo cat > /etc/nginx/sites-available/${domain} << EOF
 server {
     listen 80;
