@@ -9,9 +9,9 @@ echo ""
 echo -e "${BLUE}Updating system packages... ${NC}"
 echo ""
 
-sudo apt update && sudo apt upgrade -y && sudo apt install git nginx certbot python3-certbot-nginx
+sudo apt update && sudo apt upgrade -y && sudo apt install git nginx certbot python3-certbot-nginx > /dev/null
 
-sudo systemctl enable nginx > /dev/null 2>&1
+sudo systemctl enable nginx
 echo ""
 echo -e "${BLUE}Checking if Docker is installed... ${NC}"
 echo ""
