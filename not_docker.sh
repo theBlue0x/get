@@ -48,20 +48,14 @@ read -p "Please enter the domain name that you chose? (i.e. blue0x.duckdns.org) 
 echo ""
 }
 
-domain_step 
+domain_step
 
 while true; do
-    read -p "You have entered ' ${domain} '. Is this correct? (y/n) " yn
+    read -p "You have entered ${dimain}.  Is this correct? (y/n) " yn
     case $yn in
-        [Yy] ) 
-        echo ""
-        echo "Great! Setting up SSL certificates for your domain...";
-        break;;
-        [Nn] ) 
-        domain_step;;
-        * )
-        echo ""
-        echo "Invalid response. Please answer y or n.";;
+        [Yy]* ) echo "Great! Setting up SSL certificates for your domain..."; break;;
+        [Nn]* ) domain_step;;
+        * ) echo "Please answer yes or no.";;
     esac
 done
 
