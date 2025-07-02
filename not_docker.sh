@@ -9,7 +9,7 @@ echo ""
 echo -e "${BLUE}Updating system packages....${NC}"
 echo ""
 
-sudo apt update > /dev/null 2>&1 && sudo apt upgrade -y > /dev/null 2>&1 && sudo apt install curl git
+sudo apt update && sudo apt upgrade -y && sudo apt install git
 
 echo ""
 echo -e "${BLUE}Installing Java....${NC}"
