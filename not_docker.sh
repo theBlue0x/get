@@ -75,14 +75,14 @@ server {
 EOF
 
 sudo ln -s /etc/nginx/sites-available/${domain} /etc/nginx/sites-enabled/
-sudo certbot --nginx -d ${domain}
+sudo certbot --nginx -d ${domain} </dev/tty
 sudo systemctl restart nginx
 
 echo ""
 echo -e "${BLUE}Cloning the Blue0x repo....${NC}"
 echo ""
 
-git clone https://github.com/theBlue0x/node_new.git
+git clone https://github.com/theBlue0x/node_new.git </dev/tty
 
 cd node_new
 
