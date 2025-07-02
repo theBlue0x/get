@@ -24,34 +24,34 @@ echo ""
 echo -e "${BLUE}You now need to assign your Blue0x node a domain name."
 echo -e "Go to https://www.duckdns.org/domains and create an account."
 echo ""
-read -p "When you are finished, press Enter to continue..."
+read -p "When you are finished, press Enter to continue..." </dev/tty
 echo ""
 echo ""
 echo ""
 echo -e "Now choose a domain name for your Blue0x node and enter it into the 'sub domain' field."
 echo -e "It can be anything you like.  Then hit 'add domain'."
 echo ""
-read -p "When you are finished, press Enter to continue..."
+read -p "When you are finished, press Enter to continue..." </dev/tty
 echo ""
 echo ""
 echo ""
 echo -e "Now enter ${wanIp} into the 'current ip' field and hit 'update ip'."
 echo ""
-read -p "When you are finished, press Enter to continue..."
+read -p "When you are finished, press Enter to continue..." </dev/tty
 echo ""
 echo ""
 echo ""
 
 domain_step() {
 echo ""
-read -p "Please enter the domain name that you chose? (i.e. blue0x.duckdns.org) "  domain
+read -p "Please enter the domain name that you chose? (i.e. blue0x.duckdns.org) "  domain </dev/tty
 echo ""
 }
 
 domain_step
 
 while true; do
-    read -p "You have entered ${domain}.  Is this correct? (y/n) " yn
+    read -p "You have entered ${domain}.  Is this correct? (y/n) " yn </dev/tty
     case $yn in
         [Yy]* ) echo "Great! Setting up SSL certificates for your domain..."; break;;
         [Nn]* ) domain_step;;
