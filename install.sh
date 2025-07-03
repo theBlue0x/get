@@ -118,7 +118,7 @@ echo ""
 echo -e "${BLUE}Updating system packages....${NC}"
 echo ""
 
-sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install git
+sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install git nginx certbot python3-certbot-nginx > /dev/null
 
 echo ""
 echo -e "${BLUE}Installing Java....${NC}"
