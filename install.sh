@@ -10,7 +10,7 @@ echo ""
 echo -e "${BLUE}Updating system packages... ${NC}"
 echo ""
 
-sudo apt update && sudo apt upgrade -y && sudo apt install git nginx certbot python3-certbot-nginx > /dev/null
+sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install git nginx certbot python3-certbot-nginx > /dev/null
 
 sudo systemctl enable nginx
 echo ""
@@ -133,7 +133,7 @@ echo ""
 echo -e "${BLUE}Updating system packages....${NC}"
 echo ""
 
-sudo apt update && sudo apt upgrade -y && sudo apt install git
+sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install git
 
 echo ""
 echo -e "${BLUE}Installing Java....${NC}"
