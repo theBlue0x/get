@@ -243,7 +243,7 @@ echo ""
 }
 
 while true; do
-    echo -e "${BLUE}
+    echo -e "${BLUE}"
     read -p "Would you like to install Blue0x with Docker? [y/n] " yn </dev/tty
     case $yn in
         [Yy]* ) 
