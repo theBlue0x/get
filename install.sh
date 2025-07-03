@@ -127,7 +127,7 @@ echo ""
 # Install Azul JDK 11 
 
 curl -L --output zulu11.76.21-ca-jdk11.0.25-linux_amd64.deb https://cdn.azul.com/zulu/bin/zulu11.76.21-ca-jdk11.0.25-linux_amd64.deb
-sudo apt install ./zulu11.76.21-ca-jdk11.0.25-linux_amd64.deb
+sudo apt install ./zulu11.76.21-ca-jdk11.0.25-linux_amd64.deb -y </dev/tty
 
 echo ""
 echo -e "${BLUE}You now need to assign your Blue0x node a domain name."
