@@ -10,24 +10,9 @@ echo ""
 echo -e "${BLUE}Updating system packages... ${NC}"
 echo ""
 
-sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install git nginx certbot python3-certbot-nginx > /dev/null
+sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install git docker.io nginx certbot python3-certbot-nginx apt-transport-https ca-certificates software-properties-common > /dev/null
 
 sudo systemctl enable nginx
-echo ""
-echo -e "${BLUE}Checking if Docker is installed... ${NC}"
-echo ""
-
-if command -v docker &> /dev/null; then
-echo -e "${BLUE}Docker is already installed. ${NC}"
-
-else
-echo -e "${BLUE}Docker not installed. Installing now... ${NC}"
-echo ""
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh 1> /dev/null
-
-echo ""
-fi
 
 echo ""
 echo -e "${BLUE}You now need to assign your Blue0x node a domain name."
@@ -166,13 +151,13 @@ echo ""
 echo ""
 echo ""
 
-domain_step() {
+domain_step_a() {
 echo ""
 read -p "Please enter the domain name that you chose? (i.e. blue0x.duckdns.org) "  domain </dev/tty
 echo ""
 }
 
-domain_step
+domain_step_a
 
 while true; do
     read -p "You have entered ${domain}.  Is this correct? (y/n) " yn </dev/tty
@@ -183,7 +168,7 @@ while true; do
         echo ""
         break;;
         [Nn]* ) 
-        domain_step;;
+        domain_step_a;;
         * ) 
         echo ""
         echo "Please answer yes or no.";;
